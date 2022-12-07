@@ -16,7 +16,7 @@
     //     description: 'The button variant',
     //   },
       size: {
-        options: ['h1', 'small', 'large'],
+        options: ['1', '2', '3', '4', '5', '6'],
         control: { type: 'radio' },
         description: 'The Heading size'
       },
@@ -38,18 +38,9 @@
    * IMPORTANT: Remember to export each template binding!
    * Learn more about how to set up controls at https://storybook.js.org/docs/web-components/essentials/controls
    */
-  export const Button = Template.bind({});
-  Button.args = {
-    text: 'Button',
-    variant: 'neutral',
-    size: 'medium',
+  export const header = Template.bind({});
+  header.args = {
+    text: 'This is my headding',
+    size: '1',
   };
-  
-  export const RedButton = Template.bind({});
-  RedButton.args = {
-    text: 'Button',
-    variant: 'error',
-    size: 'medium',
-  };
-  
   

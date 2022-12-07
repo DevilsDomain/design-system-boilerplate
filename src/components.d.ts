@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface BeloParagraph {
+    }
     interface HsButton {
         "size": string;
         "variant": string;
@@ -20,6 +22,12 @@ export interface HsButtonCustomEvent<T> extends CustomEvent<T> {
     target: HTMLHsButtonElement;
 }
 declare global {
+    interface HTMLBeloParagraphElement extends Components.BeloParagraph, HTMLStencilElement {
+    }
+    var HTMLBeloParagraphElement: {
+        prototype: HTMLBeloParagraphElement;
+        new (): HTMLBeloParagraphElement;
+    };
     interface HTMLHsButtonElement extends Components.HsButton, HTMLStencilElement {
     }
     var HTMLHsButtonElement: {
@@ -33,11 +41,14 @@ declare global {
         new (): HTMLTestHeaderElement;
     };
     interface HTMLElementTagNameMap {
+        "belo-paragraph": HTMLBeloParagraphElement;
         "hs-button": HTMLHsButtonElement;
         "test-header": HTMLTestHeaderElement;
     }
 }
 declare namespace LocalJSX {
+    interface BeloParagraph {
+    }
     interface HsButton {
         "onClicked"?: (event: HsButtonCustomEvent<any>) => void;
         "size"?: string;
@@ -48,6 +59,7 @@ declare namespace LocalJSX {
         "size"?: any;
     }
     interface IntrinsicElements {
+        "belo-paragraph": BeloParagraph;
         "hs-button": HsButton;
         "test-header": TestHeader;
     }
@@ -56,6 +68,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "belo-paragraph": LocalJSX.BeloParagraph & JSXBase.HTMLAttributes<HTMLBeloParagraphElement>;
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
             "test-header": LocalJSX.TestHeader & JSXBase.HTMLAttributes<HTMLTestHeaderElement>;
         }
