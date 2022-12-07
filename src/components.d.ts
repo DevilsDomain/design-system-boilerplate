@@ -10,6 +10,10 @@ export namespace Components {
         "size": string;
         "variant": string;
     }
+    interface TestHeader {
+        "align": 'left' | 'right' | 'center';
+        "size": any;
+    }
 }
 export interface HsButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -22,8 +26,15 @@ declare global {
         prototype: HTMLHsButtonElement;
         new (): HTMLHsButtonElement;
     };
+    interface HTMLTestHeaderElement extends Components.TestHeader, HTMLStencilElement {
+    }
+    var HTMLTestHeaderElement: {
+        prototype: HTMLTestHeaderElement;
+        new (): HTMLTestHeaderElement;
+    };
     interface HTMLElementTagNameMap {
         "hs-button": HTMLHsButtonElement;
+        "test-header": HTMLTestHeaderElement;
     }
 }
 declare namespace LocalJSX {
@@ -32,8 +43,13 @@ declare namespace LocalJSX {
         "size"?: string;
         "variant"?: string;
     }
+    interface TestHeader {
+        "align"?: 'left' | 'right' | 'center';
+        "size"?: any;
+    }
     interface IntrinsicElements {
         "hs-button": HsButton;
+        "test-header": TestHeader;
     }
 }
 export { LocalJSX as JSX };
@@ -41,6 +57,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "hs-button": LocalJSX.HsButton & JSXBase.HTMLAttributes<HTMLHsButtonElement>;
+            "test-header": LocalJSX.TestHeader & JSXBase.HTMLAttributes<HTMLTestHeaderElement>;
         }
     }
 }

@@ -1,0 +1,21 @@
+@import "../../design-tokens/css/_variables.css";
+
+:host {
+  display: block;
+}
+
+* {
+font-family: 'Inter', sans-serif;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
